@@ -1,6 +1,12 @@
 postgres:
 	docker run --name postgres12 -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -d postgres:14.24-alpine3.23
 
+stop-postgres:
+	docker stop postgres12
+
+rmpostgres:
+	docker rm postgres12
+
 createdb:
 	docker exec -it postgres12 createdb --username=root --owner=root simple_bank
 
